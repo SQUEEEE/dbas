@@ -1,3 +1,5 @@
+<!-- examlpe from http://www.w3resource.com/PostgreSQL/PostgreSQL-with-php-a-through-introduction.php -->
+
     <!DOCTYPE html>  
      <head><br>  <title>Enter bookid to display data - creating a simple web application</title>  
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
