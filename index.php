@@ -1,24 +1,31 @@
 <!-- examlpe from http://www.w3resource.com/PostgreSQL/PostgreSQL-with-php-a-through-introduction.php -->
 
     <!DOCTYPE html>  
-     <head><br>  <title>Enter bookid to display data - creating a simple web application</title>  
+     <head><br>  <title>Recitation UI</title>  
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
      <style>  
     li {list-style: none;}  
     </style>  
     </head>  
     <body>  
-    <h2>Enter bookid and enter</h2>  
+    
+<!-- FORM EXAMPLE
+<h2>Enter bookid and enter</h2>  
     <ul>  
     <form name="display" action="index.php" method="POST" >  
     <li>Book ID:</li><li><input type="text" name="bookid" /></li>  
     <li><input type="submit" name="submit" /></li>  
     </form>  
     </ul>  
+
+-->
     </body>  
     </html>  
-    <?php  
-    $db = pg_connect("host=localhost port=5431 dbname=postgres user=postgres password=mollie");  
+<!-- FORM HANDLING EXAMPLE -->
+<?php  
+
+echo "Hello World!";
+   /* $db = pg_connect("host=localhost port=5431 dbname=postgres user=postgres password=mollie");  
     $result = pg_query($db, "SELECT * FROM book where book_id = '$_POST[bookid]'");  
     $row = pg_fetch_assoc($result);  
     if (isset($_POST['submit']))  
@@ -43,5 +50,5 @@
     {  
     echo "Update successfull;";  
     }  
-    }  
+    }  */
     ?>  
