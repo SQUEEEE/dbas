@@ -1,5 +1,16 @@
 <!-- examlpe from http://www.w3resource.com/PostgreSQL/PostgreSQL-with-php-a-through-introduction.php -->
 
+<!--
+
+    A student interface where the student chooses between available groups and recitations. 
+    Once chosen, the student should be provided with the correct options for that particular 
+    recitation to submit checks for done solutions.
+
+    Look up triggers!!!
+-->
+
+<!-- http://127.0.0.1:8080/dd1368/dbas/index.php -->
+
     <!DOCTYPE html>  
      <head><br>  <title>Recitation UI</title>  
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
@@ -9,6 +20,24 @@
     </head>  
     <body>  
     
+    <h2>Courses that have recitations</h2>
+<?php  
+    $db = pg_connect("host=localhost port=5431 dbname=postgres user=postgres password=mollie");  
+    $result = pg_query($db, "SELECT * FROM course");  
+    $row = pg_fetch_all($result); 
+    foreach($row as $course){
+        echo "$course[cid] </br>";
+    }
+ 
+    ?>  
+
+
+    </body>  
+    </html>  
+<!-- FORM HANDLING EXAMPLE -->
+
+
+
 <!-- FORM EXAMPLE
 <h2>Enter bookid and enter</h2>  
     <ul>  
@@ -19,13 +48,10 @@
     </ul>  
 
 -->
-    </body>  
-    </html>  
-<!-- FORM HANDLING EXAMPLE -->
-<?php  
 
-echo "Hello World!";
-   /* $db = pg_connect("host=localhost port=5431 dbname=postgres user=postgres password=mollie");  
+<!-- FORM HANDLING EXAMPLE
+
+ /* $db = pg_connect("host=localhost port=5431 dbname=postgres user=postgres password=mollie");  
     $result = pg_query($db, "SELECT * FROM book where book_id = '$_POST[bookid]'");  
     $row = pg_fetch_assoc($result);  
     if (isset($_POST['submit']))  
@@ -51,4 +77,5 @@ echo "Hello World!";
     echo "Update successfull;";  
     }  
     }  */
-    ?>  
+
+    -->
