@@ -20,17 +20,23 @@
     </head>  
     <body>  
     
-    <h2>Courses that have recitations</h2>
-<?php  
-    $db = pg_connect("host=localhost port=5431 dbname=postgres user=postgres password=mollie");  
-    $result = pg_query($db, "SELECT * FROM course");  
-    $row = pg_fetch_all($result); 
-    foreach($row as $course){
-        echo "$course[cid] </br>";
-    }
- 
-    ?>  
-
+    <h2>Choose a course to submit problem checks on</h2>
+    <form action="recitations.php" method="get">
+        <?php  
+            $db = pg_connect("host=localhost port=5431 dbname=postgres user=postgres password=mollie");  
+            $result = pg_query($db, "SELECT * FROM course");  
+            $row = pg_fetch_all($result); 
+            $inputstart = "<input type='radio' name='course' value='";
+            $inputmiddle = "'>";
+            $inputend = "</br>";
+            foreach($row as $course){
+                echo $inputstart . $course[cid] . $inputmiddle . $course[cid] . $inputend;
+              //  echo "<input type='radio' name='course' value=$course[cid] </br>";
+            }
+            
+        ?>  
+    <input type="submit" value="Recitations for this course">
+    </form>
 
     </body>  
     </html>  
